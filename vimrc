@@ -50,3 +50,59 @@ let g:tex_flavor='latex'
 
 " Set toggle key for tagbar
 nmap <F8> :TagbarToggle<CR>
+
+
+
+
+""" Functions for resizing termininal window when using vim:
+
+" Function to size up.
+function SizeUpFunc()
+    if exists("g:oldColumns")
+        return
+    endif
+    " Save the current width.
+    let g:oldColumns = &columns
+    let g:oldLines = &lines
+    " Reset column size when Vim quits.
+    au VimLeave * SizeDown
+    " Bigger width to make room for line numbers and the sign markers.
+    set columns=132 lines=50
+    " Turn on line numbers.
+    " set number
+endfunction
+command SizeUp call SizeUpFunc()
+
+" Function to size down.
+function SizeDownFunc()
+    if !exists("g:oldColumns")
+        return
+    endif
+    " Restore the original size.
+    let &columns = g:oldColumns
+    let &lines = g:oldLines
+    " Remove the variable.
+    unlet g:oldColumns
+    unlet g:oldLines
+endfunction
+command SizeDown call SizeDownFunc()
+
+" Mappings for SizeUp and SizeDown.
+map <C-Up> :SizeUp<CR>
+map <1b>Oa :SizeUp<CR>
+map <C-Down> :SizeDown<CR>
+map <1b>Ob :SizeDown<CR>
+
+
+
+""" Startup function:
+
+" Here I can add functions to me run at startup of vim
+function StartUpFunc()
+    SizeUp
+    NERDTree
+endfunction
+command StartUp call StartUpFunc()
+
+" Run startup function at startup
+" autocmd VimEnter * StartUp
