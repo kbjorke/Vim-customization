@@ -21,7 +21,11 @@ set expandtab
 set smartindent
 set autoindent
 
-
+" Use ctrl-[hjkl] to toggle between split windows.
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 
 """ Settings for vim Latex-Suite:
@@ -50,6 +54,7 @@ let g:tex_flavor='latex'
 
 " Set toggle key for tagbar
 nmap <F8> :TagbarToggle<CR>
+
 
 
 
@@ -105,4 +110,6 @@ endfunction
 command StartUp call StartUpFunc()
 
 " Run startup function at startup
-" autocmd VimEnter * StartUp
+"autocmd VimEnter * StartUp
+
+
