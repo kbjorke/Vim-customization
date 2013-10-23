@@ -27,6 +27,10 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
+" Mapping of ctrl-p to running python-script (should be put as python
+" specific mapping):
+map <c-p> :!python % <Enter>
+
 
 """ Settings for vim Latex-Suite:
 
