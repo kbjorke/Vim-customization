@@ -31,6 +31,9 @@ nmap <silent> <c-l> :wincmd l<CR>
 " specific mapping):
 map <c-p> :!python % <Enter>
 
+" Disable encryption:
+set key=
+
 
 """ Settings for vim Latex-Suite:
 
