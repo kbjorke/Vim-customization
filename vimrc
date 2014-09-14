@@ -110,9 +110,9 @@ map <1b>Ob :SizeDown<CR>
 " Function and command to start up IDE
 function IDEFunc()
     SizeUp
-    " Turn on line numbers.
-    set number
+    set number " Turn on line numbers.
     NERDTree
+    wincmd l " Move cursor to main tab
     Tagbar
 endfunction
 
