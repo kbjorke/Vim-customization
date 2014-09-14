@@ -109,7 +109,7 @@ map <1b>Ob :SizeDown<CR>
 
 """ Startup function:
 
-" Here I can add functions to me run at startup of vim
+" Here I can add functions to be run at startup of vim
 function StartUpFunc()
     SizeUp
     NERDTree
@@ -117,6 +117,6 @@ endfunction
 command StartUp call StartUpFunc()
 
 " Run startup function at startup
-"autocmd VimEnter * StartUp
+autocmd VimEnter * StartUp
 
 
