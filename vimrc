@@ -79,9 +79,7 @@ function SizeUpFunc()
     " Reset column size when Vim quits.
     au VimLeave * SizeDown
     " Bigger width to make room for line numbers and the sign markers.
-    set columns=132 lines=50
-    " Turn on line numbers.
-    set number
+    set columns=158 lines=50
 endfunction
 command SizeUp call SizeUpFunc()
 
@@ -112,7 +110,10 @@ map <1b>Ob :SizeDown<CR>
 " Function and command to start up IDE
 function IDEFunc()
     SizeUp
+    " Turn on line numbers.
+    set number
     NERDTree
+    Tagbar
 endfunction
 
 command IDE call IDEFunc()
@@ -120,7 +121,9 @@ command IDE call IDEFunc()
 " Function and command to end IDE
 function NormalFunc()
     SizeDown
-    NERDTree
+    set nonumber
+    NERDTreeClose
+    TagbarClose
 endfunction
 command Normal call NormalFunc()
 
@@ -141,5 +144,7 @@ function! s:CloseIfOnlyNerdTreeLeft()
   endif
 endfunction
 
-" Run startup function at startup
-"autocmd VimEnter * StartUp
+
+""" Tagbar key bindings
+nmap <leader>l <ESC>:TagbarToggle<cr>
+imap <leader>l <ESC>:TagbarToggle<cr>i
