@@ -81,7 +81,7 @@ function SizeUpFunc()
     " Bigger width to make room for line numbers and the sign markers.
     set columns=132 lines=50
     " Turn on line numbers.
-    " set number
+    set number
 endfunction
 command SizeUp call SizeUpFunc()
 
@@ -107,16 +107,39 @@ map <1b>Ob :SizeDown<CR>
 
 
 
-""" Startup function:
+""" IDE functions:
 
-" Here I can add functions to be run at startup of vim
-function StartUpFunc()
+" Function and command to start up IDE
+function IDEFunc()
     SizeUp
     NERDTree
 endfunction
-command StartUp call StartUpFunc()
+
+command IDE call IDEFunc()
+
+" Function and command to end IDE
+function NormalFunc()
+    SizeDown
+    NERDTree
+endfunction
+command Normal call NormalFunc()
+
+
+" Automatically quit NERDTree
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+
+" Close all open buffers on entering a window if the only
+" buffer that's left is the NERDTree buffer
+function! s:CloseIfOnlyNerdTreeLeft()
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        SizeDown
+        q
+      endif
+    endif
+  endif
+endfunction
 
 " Run startup function at startup
-autocmd VimEnter * StartUp
-
-
+"autocmd VimEnter * StartUp
