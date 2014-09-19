@@ -34,6 +34,9 @@ map <c-p> :!python % <Enter>
 " Disable encryption:
 set key=
 
+" Wrap text at end of editor:
+set wrap
+
 
 """ Settings for vim Latex-Suite:
 
