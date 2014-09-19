@@ -3,7 +3,23 @@
 %     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
 % Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
 %
-\documentclass[a4paper]{article}
+
+% \documentclass[a4paper]{article}
+
+%%% Start of User defined preamble:
+
+\documentclass[norsk, a4paper, 11pt]{article}
+\usepackage[norsk]{babel}
+\usepackage[T1]{fontenc} % For å bruke æøå
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Title}
+\author{Kristian Bjørke}
+
+%%% End of User defined preamble:
+
 \begin{document}
 <++>
 \end{document}
