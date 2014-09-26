@@ -7,9 +7,9 @@
 """ General settings:
 
 " Pathogen:
-call pathogen#incubate()
-call pathogen#helptags()
+" call pathogen#incubate()
 call pathogen#infect()
+call pathogen#helptags()
 
 
 " Canges tab-character to insert a given number of white spaces,
