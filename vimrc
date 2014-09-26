@@ -9,6 +9,7 @@
 " Pathogen:
 call pathogen#incubate()
 call pathogen#helptags()
+call pathogen#infect()
 
 
 " Canges tab-character to insert a given number of white spaces,
@@ -64,6 +65,13 @@ let g:tex_flavor='latex'
 
 " Set toggle key for tagbar
 nmap <F8> :TagbarToggle<CR>
+
+""" Settings for MiniBufferExplorer:
+
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
 
 
